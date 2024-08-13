@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Color _default;
     private Vector2 _distance;
+    private bool _canMove;
 
     private void Awake()
     {
@@ -27,10 +28,12 @@ public class Movement : MonoBehaviour
     {
         
         _default = _spriteRenderer.color;
+        _canMove = true;
     }
 
     void Update()
     {
+        if (!_canMove) return;
         Move();
         ChangeColor();
         RotateSprite();
@@ -104,5 +107,10 @@ public class Movement : MonoBehaviour
     public float GetPlayerSpeed()
     {
         return speed;
+    }
+
+    public void SetCanMove(bool canMove)
+    {
+        _canMove = canMove;
     }
 }

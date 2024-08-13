@@ -41,18 +41,22 @@ public class UiManager : MonoBehaviour
         openCreditsButton.onClick.AddListener(OnOpenCreditsButtonClicked);
         openSettingsButton.onClick.AddListener(OnOpenSettingsButtonClicked);
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!pausePanel.activeSelf)
             {
+                playerOneMovement.SetCanMove(false);
+                playerTwoMovement.SetCanMove(false);
                 pausePanel.SetActive(true);
             }
             else
             {
                 pausePanel.SetActive(false);
+                playerOneMovement.SetCanMove(true);
+                playerTwoMovement.SetCanMove(true);
             }
         }
 
@@ -63,6 +67,8 @@ public class UiManager : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         pausePanel.SetActive(false);
+        playerOneMovement.SetCanMove(true);
+        playerTwoMovement.SetCanMove(true);
     }
     private void OnExitButtonClicked()
     {
