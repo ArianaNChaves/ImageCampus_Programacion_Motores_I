@@ -95,4 +95,14 @@ public class Movement : MonoBehaviour
             _spriteRenderer.color = _default;  
         }
     }
+
+    public void SetPlayerSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+    
+    public float GetPlayerSpeed()
+    {
+        return speed;
+    }
 }
