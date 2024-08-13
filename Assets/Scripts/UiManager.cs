@@ -41,11 +41,6 @@ public class UiManager : MonoBehaviour
         openCreditsButton.onClick.AddListener(OnOpenCreditsButtonClicked);
         openSettingsButton.onClick.AddListener(OnOpenSettingsButtonClicked);
     }
-
-    void Start()
-    {
-        
-    }
     
     void Update()
     {
