@@ -55,6 +55,10 @@ public class UiManager : MonoBehaviour
             {
                 pausePanel.SetActive(true);
             }
+            else
+            {
+                pausePanel.SetActive(false);
+            }
         }
 
         SetTextSpeed();
