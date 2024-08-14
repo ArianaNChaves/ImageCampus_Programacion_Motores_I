@@ -50,6 +50,7 @@ public class UiManager : MonoBehaviour
             {
                 playerOneMovement.SetCanMove(false);
                 playerTwoMovement.SetCanMove(false);
+                ResetPauseMenu();
                 pausePanel.SetActive(true);
             }
             else
@@ -111,5 +112,12 @@ public class UiManager : MonoBehaviour
         if (!settingsPanel.activeSelf) return;
         playerOneMovement.SetPlayerSpeed(playerOneSlider.value * 10);
         playerTwoMovement.SetPlayerSpeed(playerTwoSlider.value * 10);
+    }
+
+    private void ResetPauseMenu()
+    {
+        buttonsContainerPanel.SetActive(true);
+        creditsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 }
