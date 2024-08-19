@@ -836,8 +836,8 @@ MonoBehaviour:
   playerTwoSlider: {fileID: 1138728299}
   playerOneSpeedText: {fileID: 632982181}
   playerTwoSpeedText: {fileID: 1936122618}
-  playerOneMovement: {fileID: 997326644}
-  playerTwoMovement: {fileID: 1023330568}
+  playerOneMovement: {fileID: 0}
+  playerTwoMovement: {fileID: 0}
 --- !u!1 &375189807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1530,9 @@ GameObject:
   m_Component:
   - component: {fileID: 997326643}
   - component: {fileID: 997326642}
-  - component: {fileID: 997326644}
+  - component: {fileID: 997326646}
+  - component: {fileID: 997326645}
+  - component: {fileID: 997326647}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -1606,7 +1608,32 @@ Transform:
   - {fileID: 1562987788}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &997326644
+--- !u!114 &997326645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997326641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9bf171cf1781844bb60c2d7e0f21e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &997326646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997326641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be05be6a913e1554089a0ed7f4f568f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: 10
+--- !u!114 &997326647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1619,11 +1646,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rotation: 10
-  keyUp: 273
-  keyDown: 274
-  keyLeft: 276
-  keyRight: 275
+  keyUp: 119
+  keyDown: 115
+  keyLeft: 97
+  keyRight: 100
 --- !u!1 &1023330565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,7 +1660,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1023330567}
   - component: {fileID: 1023330566}
-  - component: {fileID: 1023330568}
+  - component: {fileID: 1023330570}
+  - component: {fileID: 1023330569}
+  - component: {fileID: 1023330571}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -1710,7 +1738,32 @@ Transform:
   - {fileID: 1650917163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1023330568
+--- !u!114 &1023330569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023330565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9bf171cf1781844bb60c2d7e0f21e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1023330570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023330565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be05be6a913e1554089a0ed7f4f568f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: 10
+--- !u!114 &1023330571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1723,11 +1776,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  rotation: 10
-  keyUp: 119
-  keyDown: 115
-  keyLeft: 97
-  keyRight: 100
+  keyUp: 273
+  keyDown: 274
+  keyLeft: 276
+  keyRight: 275
 --- !u!1 &1033112534
 GameObject:
   m_ObjectHideFlags: 0
