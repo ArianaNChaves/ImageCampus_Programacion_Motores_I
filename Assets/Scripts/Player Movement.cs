@@ -10,8 +10,6 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private KeyCode keyUp;
     [SerializeField] private KeyCode keyDown;
-    [SerializeField] private KeyCode keyLeft;
-    [SerializeField] private KeyCode keyRight;
     
     private Vector2 _distance;
     private bool _canMove;
@@ -21,11 +19,11 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (!_canMove) return;
         Move();
     }
     private void Move()
     {
+        if (!_canMove) return;
         _distance = Vector2.zero;
         if (Input.GetKey(keyUp))
         {
@@ -34,14 +32,6 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(keyDown))
         {
             _distance += Vector2.down;
-        }
-        if (Input.GetKey(keyLeft))
-        {
-            _distance += Vector2.left;
-        }
-        if (Input.GetKey(keyRight))
-        {
-            _distance += Vector2.right;
         }
 
         Vector2 move = _distance.normalized;
