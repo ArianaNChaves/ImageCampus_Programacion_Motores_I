@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 635793865}
   - component: {fileID: 635793864}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: Wall Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -595,6 +595,37 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.0736, y: -5.45, z: 0}
   m_LocalScale: {x: 20.473555, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &705417059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705417060}
+  m_Layer: 0
+  m_Name: '---------------------- '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &705417060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705417059}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -774,7 +805,7 @@ GameObject:
   - component: {fileID: 1368735595}
   - component: {fileID: 1368735594}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Wall Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,7 +1101,6 @@ MonoBehaviour:
   - {fileID: 906164638}
   - {fileID: 1949657565}
   obstaclePrefab: {fileID: 1815918552156498534, guid: 078117f8463031b4ab9d69aeab81bf15, type: 3}
-  obstacleDespawnInterval: 3.21
   obstacleSpawnInterval: 2.2
 --- !u!1001 &2502731826302055991
 PrefabInstance:
@@ -1250,3 +1280,4 @@ SceneRoots:
   - {fileID: 1941461590}
   - {fileID: 1368735596}
   - {fileID: 635793866}
+  - {fileID: 705417060}

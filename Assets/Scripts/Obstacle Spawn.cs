@@ -11,8 +11,6 @@ public class ObstacleSpawn : MonoBehaviour
 
     [SerializeField] private Transform[] spawnPointsObstaclesList;
     [SerializeField] private GameObject obstaclePrefab;
-    
-    [SerializeField, Range(3.0f, 7.0f)] private float obstacleDespawnInterval;
     [SerializeField, Range(1.0f, 20.0f)] private float obstacleSpawnInterval;
     
     private void OnEnable()
@@ -29,7 +27,6 @@ public class ObstacleSpawn : MonoBehaviour
     }
     private void SpawnObstacle()
     {
-        Debug.Log("Obstacle Spawn - Spawning Obstacle");
         int randomPosition = RandomIntBetween(0, spawnPointsObstaclesList.Length);
         GameObject obstacle = Instantiate(obstaclePrefab, spawnPointsObstaclesList[randomPosition].position, Quaternion.identity);
         obstacle.GetComponent<Obstacle>().StartDestroy(RandomIntBetween(3, 8));
