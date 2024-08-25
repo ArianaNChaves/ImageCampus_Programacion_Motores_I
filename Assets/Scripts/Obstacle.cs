@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,20 +6,21 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+
+    private void Start()
+    {
+        Debug.Log("Obstacle Spawn");
+    }
+
+    public void StartDestroy(float delay)
+    {
+        Debug.Log($"Delay:  {delay}");
+
+        Invoke(nameof(SelfDestroy), delay);
+    }
     private void SelfDestroy()
     {
-        Destroy(gameObject);
-    }
-
-    private IEnumerator DestroyAfter(float seconds)
-    {
-        yield return new WaitForSeconds(seconds * Time.deltaTime);
-        //mandar evento
-        SelfDestroy();
-    }
-
-    public void StartDestroyCoroutine(float seconds)
-    {
-        StartCoroutine(DestroyAfter(seconds));
+        ObstacleSpawn.OnObstacleDespawned?.Invoke();
+        Destroy(gameObject, 0.1f);
     }
 }
