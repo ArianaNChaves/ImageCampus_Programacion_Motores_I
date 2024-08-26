@@ -3,31 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
+    [Header("Sprites")] 
+    [SerializeField] private SpriteRenderer playerOneSpriteRenderer;
+    [SerializeField] private SpriteRenderer playerTwoSpriteRenderer;
+    [SerializeField] private RawImage playerOneSpriteImage;
+    [SerializeField] private RawImage playerTwoSpriteImage;
+    
     [Header("Buttons")]
     [SerializeField] private Button playButton;
     [SerializeField] private Button exitButton;
-    [SerializeField] private Button creditsButton;
-    [SerializeField] private Button settingsButton;
-    [SerializeField] private Button openSettingsButton;
-    [SerializeField] private Button openCreditsButton;
+    [SerializeField] private Button colorOnePlayerOneButton;
+    [SerializeField] private Button colorTwoPlayerOneButton;
+    [SerializeField] private Button colorOnePlayerTwoButton;
+    [SerializeField] private Button colorTwoPlayerTwoButton;
 
     [Header("Panels")] 
-    [SerializeField] private GameObject pausePanel;
-    [SerializeField] private GameObject creditsPanel;
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private GameObject buttonsContainerPanel;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject playersHUDPanel;
 
     [Header("Silders")] 
     [SerializeField] private Slider playerOneSlider;
     [SerializeField] private Slider playerTwoSlider;
+    [SerializeField] private Slider shieldSlider;
     
     [Header("Texts")] 
     [SerializeField] private TextMeshProUGUI playerOneSpeedText;
     [SerializeField] private TextMeshProUGUI playerTwoSpeedText;
+    
+    [Header("Rect Transforms")] 
+    [SerializeField] private RectTransform shieldImageRectTransform;
     
     [Header("Players Movement")] 
     [SerializeField] private Movement playerOneMovement;
@@ -36,38 +45,46 @@ public class UiManager : MonoBehaviour
     {
         playButton.onClick.AddListener(OnPlayButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
-        creditsButton.onClick.AddListener(OnCreditsButtonClicked);
-        settingsButton.onClick.AddListener(OnSettingsButtonClicked);
-        openCreditsButton.onClick.AddListener(OnOpenCreditsButtonClicked);
-        openSettingsButton.onClick.AddListener(OnOpenSettingsButtonClicked);
+        //player 1
+        colorOnePlayerOneButton.onClick.AddListener(OnColorOnePlayerOneButtonClicked);
+        colorTwoPlayerOneButton.onClick.AddListener(OnColorTwoPlayerOneButtonClicked);
+        playerOneSlider.onValueChanged.AddListener(SetPlayerOneSpeed);
+        //player 2
+        colorOnePlayerTwoButton.onClick.AddListener(OnColorOnePlayerTwoButtonClicked);
+        colorTwoPlayerTwoButton.onClick.AddListener(OnColorTwoPlayerTwoButtonClicked);
+        playerTwoSlider.onValueChanged.AddListener(SetPlayerTwoSpeed);
+        //Shield
+        shieldSlider.onValueChanged.AddListener(SetShieldWidth);
+
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pausePanel.activeSelf)
+            if (!mainMenuPanel.activeSelf)
             {
                 playerOneMovement.SetCanMove(false);
                 playerTwoMovement.SetCanMove(false);
-                ResetPauseMenu();
-                pausePanel.SetActive(true);
+                
+                playersHUDPanel.SetActive(false);
+                mainMenuPanel.SetActive(true);
             }
             else
             {
-                pausePanel.SetActive(false);
+                mainMenuPanel.SetActive(false);
+                playersHUDPanel.SetActive(true);
+                
                 playerOneMovement.SetCanMove(true);
                 playerTwoMovement.SetCanMove(true);
             }
         }
-
         SetTextSpeed();
-        SetPlayersSpeed();
     }
 //-------------------------------------------------- Buttons
     private void OnPlayButtonClicked()
     {
-        pausePanel.SetActive(false);
+        mainMenuPanel.SetActive(false);
         playerOneMovement.SetCanMove(true);
         playerTwoMovement.SetCanMove(true);
     }
@@ -77,47 +94,52 @@ public class UiManager : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
-    private void OnCreditsButtonClicked()
+//Player 1
+    private void OnColorOnePlayerOneButtonClicked()
     {
-        creditsPanel.SetActive(true);
-        buttonsContainerPanel.SetActive(false);
+        playerOneSpriteRenderer.color = Color.cyan;
     }
-    private void OnSettingsButtonClicked()
+    private void OnColorTwoPlayerOneButtonClicked()
     {
-        settingsPanel.SetActive(true);
-        buttonsContainerPanel.SetActive(false);
+        playerOneSpriteRenderer.color = Color.magenta;
     }
-    private void OnOpenSettingsButtonClicked()
+//Player 2
+    private void OnColorOnePlayerTwoButtonClicked()
     {
-        buttonsContainerPanel.SetActive(true);
-        settingsPanel.SetActive(false);
+        playerOneSpriteRenderer.color = Color.red;
     }
-    private void OnOpenCreditsButtonClicked()
+    private void OnColorTwoPlayerTwoButtonClicked()
     {
-        buttonsContainerPanel.SetActive(true);
-        creditsPanel.SetActive(false);
+        playerOneSpriteRenderer.color = Color.yellow;
     }
     
 //-------------------------------------------------- Methods    
     private void SetTextSpeed()
     {
-        if (!settingsPanel.activeSelf) return;
-
+        // if (!mainMenuPanel.activeSelf) return;
         playerOneSpeedText.text = playerOneMovement.GetPlayerSpeed().ToString("F1");
         playerTwoSpeedText.text = playerTwoMovement.GetPlayerSpeed().ToString("F1");
     }
-
-    private void SetPlayersSpeed()
+    private void SetPlayerOneSpeed(float value)
     {
-        if (!settingsPanel.activeSelf) return;
-        playerOneMovement.SetPlayerSpeed(playerOneSlider.value * 10);
-        playerTwoMovement.SetPlayerSpeed(playerTwoSlider.value * 10);
+        // if (!settingsPanel.activeSelf) return;
+        playerOneMovement.SetPlayerSpeed(value * 10);
     }
-
-    private void ResetPauseMenu()
+    private void SetPlayerTwoSpeed(float value)
     {
-        buttonsContainerPanel.SetActive(true);
-        creditsPanel.SetActive(false);
-        settingsPanel.SetActive(false);
+        // if (!settingsPanel.activeSelf) return;
+        playerTwoMovement.SetPlayerSpeed(value * 10);
+    }
+    private void SetShieldWidth(float value)
+    {
+        shieldImageRectTransform.sizeDelta = new Vector2(value * 200, shieldImageRectTransform.sizeDelta.y);
+    }
+    public Color GetPlayerOneColor()
+    {
+        return playerOneSpriteRenderer.color;
+    }
+    public Color GetPlayerTwoColor()
+    {
+        return playerTwoSpriteRenderer.color;
     }
 }
