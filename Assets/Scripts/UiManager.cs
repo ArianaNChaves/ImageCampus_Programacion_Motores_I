@@ -38,9 +38,13 @@ public class UiManager : MonoBehaviour
     [Header("Rect Transforms")] 
     [SerializeField] private RectTransform shieldImageRectTransform;
     
-    [Header("Players Movement")] 
+    [Header("Players Scripts")] 
     [SerializeField] private Movement playerOneMovement;
     [SerializeField] private Movement playerTwoMovement;
+    [SerializeField] private ShieldSize playerOneShield;
+    [SerializeField] private ShieldSize playerTwoShield;
+    
+    private const int SHIELD_SIZE = 200;
     private void Awake()
     {
         playButton.onClick.AddListener(OnPlayButtonClicked);
@@ -97,20 +101,24 @@ public class UiManager : MonoBehaviour
 //Player 1
     private void OnColorOnePlayerOneButtonClicked()
     {
+        playerOneSpriteImage.color = Color.cyan;
         playerOneSpriteRenderer.color = Color.cyan;
     }
     private void OnColorTwoPlayerOneButtonClicked()
     {
+        playerOneSpriteImage.color = Color.magenta;
         playerOneSpriteRenderer.color = Color.magenta;
     }
 //Player 2
     private void OnColorOnePlayerTwoButtonClicked()
     {
-        playerOneSpriteRenderer.color = Color.red;
+        playerTwoSpriteImage.color = Color.red;
+        playerTwoSpriteRenderer.color = Color.red;
     }
     private void OnColorTwoPlayerTwoButtonClicked()
     {
-        playerOneSpriteRenderer.color = Color.yellow;
+        playerTwoSpriteImage.color = Color.yellow;
+        playerTwoSpriteRenderer.color = Color.yellow;
     }
     
 //-------------------------------------------------- Methods    
@@ -132,14 +140,9 @@ public class UiManager : MonoBehaviour
     }
     private void SetShieldWidth(float value)
     {
-        shieldImageRectTransform.sizeDelta = new Vector2(value * 200, shieldImageRectTransform.sizeDelta.y);
+        shieldImageRectTransform.sizeDelta = new Vector2(value * SHIELD_SIZE, shieldImageRectTransform.sizeDelta.y);
+        playerOneShield.SetShieldSize(value);
+        playerTwoShield.SetShieldSize(value);
     }
-    public Color GetPlayerOneColor()
-    {
-        return playerOneSpriteRenderer.color;
-    }
-    public Color GetPlayerTwoColor()
-    {
-        return playerTwoSpriteRenderer.color;
-    }
+
 }
