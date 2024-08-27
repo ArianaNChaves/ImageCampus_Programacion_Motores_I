@@ -20,7 +20,6 @@ public class Movement : MonoBehaviour
         Player1,
         Player2
     }
-
     private void Awake()
     {
         switch (playerSelection)
@@ -38,11 +37,9 @@ public class Movement : MonoBehaviour
                 break;
         }  
     }
-
     private void Start()
     {
         _canMove = true;
-        
     }
     void Update()
     {
@@ -54,17 +51,16 @@ public class Movement : MonoBehaviour
         _distance = Vector2.zero;
         if (Input.GetKey(_keyUp))
         {
-            _distance += Vector2.up;
+            _distance += Vector2.left; //todo Ver si esto esta bien asi o como rotar el sprite
         }
         if (Input.GetKey(_keyDown))
         {
-            _distance += Vector2.down;
+            _distance += Vector2.right; //todo lo mismo se aplica
         }
 
         Vector2 move = _distance.normalized;
         transform.Translate(move * (speed * Time.deltaTime));
     }
-    
     public void SetPlayerSpeed(float newSpeed)
     {
         speed = newSpeed;
