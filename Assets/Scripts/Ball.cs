@@ -13,7 +13,6 @@ public class Ball : MonoBehaviour
     
     private Rigidbody2D _rigidbody2D;
     private Vector2 _direction;
-    private float _desviation = 1.0f;
 
     private void Awake()
     {

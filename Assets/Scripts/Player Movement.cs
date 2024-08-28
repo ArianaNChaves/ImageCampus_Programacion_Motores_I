@@ -28,9 +28,9 @@ public class Movement : MonoBehaviour
                 _keyUp = KeyCode.W;
                 _keyDown = KeyCode.S;
                 break;
-            case Player.Player2:
-                _keyUp = KeyCode.UpArrow;
-                _keyDown = KeyCode.DownArrow;
+            case Player.Player2: //todo Como haria esto correctamente? Porque el sprite quiero que mire <- pero eso cambia si esta rotado
+                _keyUp = KeyCode.DownArrow;
+                _keyDown = KeyCode.UpArrow;
                 break;
             default:
                 Debug.LogError("Player Movement - Awake - Player no asignado");
