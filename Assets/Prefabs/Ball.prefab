@@ -276,5 +276,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  incrementalSpeed: 0.5
+  incrementalSpeed: 1
   target: {fileID: 0}
