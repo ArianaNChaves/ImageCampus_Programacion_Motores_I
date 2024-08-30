@@ -9,21 +9,12 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] private float speed = 0.5f;
     [SerializeField] private float incrementalSpeed = 0.5f;
-    [SerializeField] private Transform target;
     
     private Rigidbody2D _rigidbody2D;
-    private Vector2 _direction;
-
+    private Vector3 _direction;
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-    private void Start()
-    {
-        // _rigidbody2D.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
-        Vector3 direction = target.right;
-        _rigidbody2D.velocity = new Vector2(direction.x, direction.y) * speed;
-         
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,5 +23,10 @@ public class Ball : MonoBehaviour
             speed += incrementalSpeed;
             _rigidbody2D.velocity = _rigidbody2D.velocity.normalized * speed;
         }
+    }
+    public void Initiate(Transform direction)
+    {
+        _direction = direction.right;
+        _rigidbody2D.velocity = new Vector2(_direction.x, _direction.y) * speed;
     }
 }
