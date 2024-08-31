@@ -9,11 +9,14 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 10.0f;
     [SerializeField] private Player  playerSelection;
+
+    private const int SPEEDFIXED = 50; 
     
     private Vector2 _distance;
     private bool _canMove;
     private KeyCode _keyUp;
     private KeyCode _keyDown;
+    private Rigidbody2D _rigidbody2D;
 
     private bool _canMoveUp;
     private bool _canMoveDown;
@@ -25,6 +28,8 @@ public class Movement : MonoBehaviour
     }
     private void Awake()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        
         switch (playerSelection)
         {
             case Player.Player1:
@@ -42,49 +47,73 @@ public class Movement : MonoBehaviour
     }
     private void Start()
     {
-        _canMove = true;
+       // _canMove = true;
     }
     void Update()
     {
-        Move();
         RestrictMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
     private void Move()
     {
-        if (!_canMove) return;
+      //  if (!_canMove) return;
+        
         _distance = Vector2.zero;
+        
         if (Input.GetKey(_keyUp) && _canMoveUp)
         {
-            _distance += Vector2.left; //todo Ver si esto esta bien asi o como rotar el sprite
+            _distance += Vector2.up;
         }
         if (Input.GetKey(_keyDown) && _canMoveDown)
         {
-            _distance += Vector2.right; //todo lo mismo se aplica
+            _distance += Vector2.down;
         }
 
-        Vector2 move = _distance.normalized;
-        transform.Translate(move * (speed * Time.deltaTime));
+        _rigidbody2D.velocity = _distance * (speed * Time.fixedDeltaTime * SPEEDFIXED);
     }
 
     private void RestrictMovement()
     {
-        if (transform.position.y <= 4.3f)
+        _canMoveUp = transform.position.y <= 4.3f;
+        _canMoveDown = transform.position.y >= -4.3f;
+        // if (transform.position.y <= 4.3f)
+        // {
+        //     _canMoveUp = true;
+        // }
+        // else
+        // {
+        //     _canMoveUp = false;
+        // }
+        //
+        // if (transform.position.y >= -4.3f)
+        // {
+        //     _canMoveDown = true;
+        // }
+        // else
+        // {
+        //     _canMoveDown = false;
+        // }
+        // if (!_canMoveUp && _rigidbody2D.velocity.y > 0)
+        // {
+        //     _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+        // }
+        // if (!_canMoveDown && _rigidbody2D.velocity.y < 0)
+        // {
+        //     _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+        // }
+        if (!_canMoveUp && _rigidbody2D.velocity.y > 0)
         {
-            _canMoveUp = true;
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
         }
-        else
+        else if (!_canMoveDown && _rigidbody2D.velocity.y < 0)
         {
-            _canMoveUp = false;
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
         }
-
-        if (transform.position.y >= -4.3f)
-        {
-            _canMoveDown = true;
-        }
-        else
-        {
-            _canMoveDown = false;
-        }
+        
     }
     public void SetPlayerSpeed(float newSpeed)
     {
