@@ -14,7 +14,6 @@ public class Movement : MonoBehaviour
     private const float WHERE_STOP = 4.3f;
     
     private Vector2 _distance;
-    private bool _canMove;
     private KeyCode _keyUp;
     private KeyCode _keyDown;
     private Rigidbody2D _rigidbody2D;
@@ -45,10 +44,6 @@ public class Movement : MonoBehaviour
                 Debug.LogError("Player Movement - Awake - Player no asignado");
                 break;
         }  
-    }
-    private void Start()
-    {
-       // _canMove = true;
     }
     void Update()
     {
@@ -88,7 +83,6 @@ public class Movement : MonoBehaviour
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
         }
-        
     }
     public void SetPlayerSpeed(float newSpeed)
     {
@@ -97,9 +91,5 @@ public class Movement : MonoBehaviour
     public float GetPlayerSpeed()
     {
         return speed;
-    }
-    public void SetCanMove(bool canMove)
-    {
-        _canMove = canMove;
     }
 }
