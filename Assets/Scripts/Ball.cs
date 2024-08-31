@@ -23,7 +23,6 @@ public class Ball : MonoBehaviour
         Vector2 collisionNormalVector = collision.contacts[0].normal;
 
         _direction = Vector2.Reflect(_direction, collisionNormalVector);
-    
         _direction = Quaternion.Euler(0, 0, RandomDeviation()) * _direction;
     
         _rigidbody2D.velocity = _direction.normalized * speed;
