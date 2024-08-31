@@ -69,9 +69,6 @@ public class UiManager : MonoBehaviour
         {
             if (!mainMenuPanel.activeSelf)
             {
-                playerOneMovement.SetCanMove(false);
-                playerTwoMovement.SetCanMove(false);
-                
                 playersHUDPanel.SetActive(false);
                 mainMenuPanel.SetActive(true);
             }
@@ -79,9 +76,6 @@ public class UiManager : MonoBehaviour
             {
                 mainMenuPanel.SetActive(false);
                 playersHUDPanel.SetActive(true);
-                
-                playerOneMovement.SetCanMove(true);
-                playerTwoMovement.SetCanMove(true);
             }
         }
         SetTextSpeed();
@@ -90,8 +84,6 @@ public class UiManager : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         mainMenuPanel.SetActive(false);
-        playerOneMovement.SetCanMove(true);
-        playerTwoMovement.SetCanMove(true);
     }
     private void OnExitButtonClicked()
     {
@@ -125,18 +117,15 @@ public class UiManager : MonoBehaviour
 //-------------------------------------------------- Methods    
     private void SetTextSpeed()
     {
-        // if (!mainMenuPanel.activeSelf) return;
         playerOneSpeedText.text = playerOneMovement.GetPlayerSpeed().ToString("F1");
         playerTwoSpeedText.text = playerTwoMovement.GetPlayerSpeed().ToString("F1");
     }
     private void SetPlayerOneSpeed(float value)
     {
-        // if (!settingsPanel.activeSelf) return;
         playerOneMovement.SetPlayerSpeed(value * SPEED_MULTIPLIER);
     }
     private void SetPlayerTwoSpeed(float value)
     {
-        // if (!settingsPanel.activeSelf) return;
         playerTwoMovement.SetPlayerSpeed(value * SPEED_MULTIPLIER);
     }
     private void SetShieldWidth(float value)
