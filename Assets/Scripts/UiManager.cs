@@ -45,6 +45,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private ShieldSize playerTwoShield;
     
     private const int SHIELD_SIZE = 200;
+    private const int SPEED_MULTIPLIER = 10;
     private void Awake()
     {
         playButton.onClick.AddListener(OnPlayButtonClicked);
@@ -131,12 +132,12 @@ public class UiManager : MonoBehaviour
     private void SetPlayerOneSpeed(float value)
     {
         // if (!settingsPanel.activeSelf) return;
-        playerOneMovement.SetPlayerSpeed(value * 10);
+        playerOneMovement.SetPlayerSpeed(value * SPEED_MULTIPLIER);
     }
     private void SetPlayerTwoSpeed(float value)
     {
         // if (!settingsPanel.activeSelf) return;
-        playerTwoMovement.SetPlayerSpeed(value * 10);
+        playerTwoMovement.SetPlayerSpeed(value * SPEED_MULTIPLIER);
     }
     private void SetShieldWidth(float value)
     {

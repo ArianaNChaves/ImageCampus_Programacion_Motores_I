@@ -8,9 +8,10 @@ using Random = UnityEngine.Random;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed = 10.0f;
-    [SerializeField] private Player  playerSelection;
+    [SerializeField] private Player playerSelection;
 
-    private const int SPEEDFIXED = 50; 
+    private const int FIXED_SPEED = 50;
+    private const float WHERE_STOP = 4.3f;
     
     private Vector2 _distance;
     private bool _canMove;
@@ -36,7 +37,7 @@ public class Movement : MonoBehaviour
                 _keyUp = KeyCode.W;
                 _keyDown = KeyCode.S;
                 break;
-            case Player.Player2: //todo Como haria esto correctamente? Porque el sprite quiero que mire <- pero eso cambia si esta rotado
+            case Player.Player2:
                 _keyUp = KeyCode.UpArrow;
                 _keyDown = KeyCode.DownArrow;
                 break;
@@ -60,8 +61,6 @@ public class Movement : MonoBehaviour
     }
     private void Move()
     {
-      //  if (!_canMove) return;
-        
         _distance = Vector2.zero;
         
         if (Input.GetKey(_keyUp) && _canMoveUp)
@@ -73,38 +72,14 @@ public class Movement : MonoBehaviour
             _distance += Vector2.down;
         }
 
-        _rigidbody2D.velocity = _distance * (speed * Time.fixedDeltaTime * SPEEDFIXED);
+        _rigidbody2D.velocity = _distance * (speed * Time.fixedDeltaTime * FIXED_SPEED);
     }
 
     private void RestrictMovement()
     {
-        _canMoveUp = transform.position.y <= 4.3f;
-        _canMoveDown = transform.position.y >= -4.3f;
-        // if (transform.position.y <= 4.3f)
-        // {
-        //     _canMoveUp = true;
-        // }
-        // else
-        // {
-        //     _canMoveUp = false;
-        // }
-        //
-        // if (transform.position.y >= -4.3f)
-        // {
-        //     _canMoveDown = true;
-        // }
-        // else
-        // {
-        //     _canMoveDown = false;
-        // }
-        // if (!_canMoveUp && _rigidbody2D.velocity.y > 0)
-        // {
-        //     _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
-        // }
-        // if (!_canMoveDown && _rigidbody2D.velocity.y < 0)
-        // {
-        //     _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
-        // }
+        _canMoveUp = transform.position.y <= WHERE_STOP;
+        _canMoveDown = transform.position.y >= -WHERE_STOP;
+
         if (!_canMoveUp && _rigidbody2D.velocity.y > 0)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
