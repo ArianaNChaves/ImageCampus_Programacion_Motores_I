@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Obstacle
   - Arc
+  - Line
+  - Ball
   layers:
   - Default
   - TransparentFX
