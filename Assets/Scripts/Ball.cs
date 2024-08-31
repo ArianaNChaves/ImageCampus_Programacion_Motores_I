@@ -22,12 +22,11 @@ public class Ball : MonoBehaviour
     {
         Vector2 collisionNormalVector = collision.contacts[0].normal;
 
-        Vector3 normal = new Vector3(collisionNormalVector.x, collisionNormalVector.y, 0f);
-        _direction = _direction - 2 * Vector3.Dot(_direction, normal) * normal;
-
+        _direction = Vector2.Reflect(_direction, collisionNormalVector);
+    
         _direction = Quaternion.Euler(0, 0, RandomDeviation()) * _direction;
-        
-        _rigidbody2D.velocity = new Vector2(_direction.x , _direction.y).normalized * speed;
+    
+        _rigidbody2D.velocity = _direction.normalized * speed;
         
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Obstacle"))
         {
