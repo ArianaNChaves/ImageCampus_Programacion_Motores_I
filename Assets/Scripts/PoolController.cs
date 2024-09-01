@@ -11,7 +11,6 @@ public enum ObjectType
 
 public class PoolController : MonoBehaviour
 {
-    public event Action<ObjectType, GameObject> OnReturnCall;
 
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject obstaclePrefab;
@@ -21,17 +20,7 @@ public class PoolController : MonoBehaviour
     [SerializeField] private int initialCountOfBuffs;
 
     private Dictionary<ObjectType, List<GameObject>> _pool;
-
-    private void OnEnable()
-    {
-        OnReturnCall += ReturnToPool;
-    }
-
-    private void OnDisable()
-    {
-        OnReturnCall -= ReturnToPool;
-    }
-
+    
     private void Start()
     {
         _pool = new Dictionary<ObjectType, List<GameObject>>();

@@ -7,6 +7,7 @@ public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject ballPrefab;
+    [SerializeField] private PoolController poolController;
 
     private const int DESVIATION = 2;
     
@@ -16,17 +17,11 @@ public class BallSpawner : MonoBehaviour
         SpawnBall();
     }
     
-    private void SpawnBall()
+    public void SpawnBall()
     {
-        GameObject ball = Instantiate(ballPrefab, spawnPoint.position, Quaternion.identity);
-        ball.GetComponent<Ball>().Initiate(this.transform);
+        GameObject ball = poolController.GetObjectFromPool(ObjectType.Ball);
+        ball.SetActive(true);
+        ball.GetComponent<Ball>().Initiate(spawnPoint);
     }
-
-    private void CanSpawnBall()
-    {
-        if (transform.rotation.eulerAngles.z < 90)
-        {
-            
-        }
-    }
+    
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private PlayerHUD playerHUD;
+    [SerializeField] private BallSpawner ballSpawner;
     [SerializeField] private Line[] lines;
     
     private void OnEnable()
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void UpdateScore(string player)
     {
         playerHUD.UpdateScoreText(player);
+        ballSpawner.SpawnBall();
     }
 
 }

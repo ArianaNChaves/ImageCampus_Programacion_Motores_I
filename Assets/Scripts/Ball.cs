@@ -12,11 +12,13 @@ public class Ball : MonoBehaviour
     
     private Rigidbody2D _rigidbody2D;
     private Vector3 _direction;
+    private float _initialSpeed;
 
     private const float DEVIATION = 10.0f;
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _initialSpeed = speed;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -36,6 +38,8 @@ public class Ball : MonoBehaviour
     }
     public void Initiate(Transform direction)
     {
+        speed = _initialSpeed;
+        transform.position = direction.position;
         _direction = direction.up;
         _rigidbody2D.velocity = new Vector2(_direction.x, _direction.y) * speed;
     }

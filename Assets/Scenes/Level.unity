@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scorePointTo: PlayerOne
+  poolController: {fileID: 350593654}
 --- !u!1 &54742324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,9 +1841,9 @@ MonoBehaviour:
   ballPrefab: {fileID: 5485861874922449217, guid: 1637767bc6a9735489311bd216928730, type: 3}
   obstaclePrefab: {fileID: 1815918552156498534, guid: 078117f8463031b4ab9d69aeab81bf15, type: 3}
   buffPrefab: {fileID: 5485861874922449217, guid: 49c5d613b49ab944d91d3e8edcfcbbff, type: 3}
-  initialCountOfBalls: 0
-  initialCountOfObstacles: 0
-  initialCountOfBuffs: 0
+  initialCountOfBalls: 1
+  initialCountOfObstacles: 2
+  initialCountOfBuffs: 2
 --- !u!1 &375189807
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,6 +3437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHUD: {fileID: 1239028182}
+  ballSpawner: {fileID: 1020412836}
   lines:
   - {fileID: 25563246}
   - {fileID: 1007947520}
@@ -3939,6 +3941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scorePointTo: PlayerTwo
+  poolController: {fileID: 350593654}
 --- !u!1 &1019215551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4023,6 +4026,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 12417840}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.249}
+--- !u!114 &1020412836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1861879082913716243, guid: 53c3cffd261682649ac5284c030c66ac, type: 3}
+  m_PrefabInstance: {fileID: 7238918646447382820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b47ca1f6cd62014b850e096c4cd9ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024786212
 GameObject:
   m_ObjectHideFlags: 0
@@ -9092,6 +9106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1861879082913716243, guid: 53c3cffd261682649ac5284c030c66ac, type: 3}
+      propertyPath: poolController
+      value: 
+      objectReference: {fileID: 350593654}
     - target: {fileID: 4590348890046438938, guid: 53c3cffd261682649ac5284c030c66ac, type: 3}
       propertyPath: m_Name
       value: Cannon
