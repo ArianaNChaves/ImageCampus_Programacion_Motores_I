@@ -38,12 +38,12 @@ public class Ball : MonoBehaviour
     }
     public void Initiate(Transform direction)
     {
-        speed = _initialSpeed;
         transform.position = direction.position;
+        speed = _initialSpeed;
         _direction = direction.up;
         _rigidbody2D.velocity = new Vector2(_direction.x, _direction.y) * speed;
     }
-
+    
     private float RandomDeviation()
     {
         return Random.Range(-DEVIATION, DEVIATION);

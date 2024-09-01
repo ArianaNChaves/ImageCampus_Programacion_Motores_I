@@ -6,10 +6,10 @@ using UnityEngine;
 public class BallSpawner : MonoBehaviour
 {
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject ballPrefab;
     [SerializeField] private PoolController poolController;
 
-    private const int DESVIATION = 2;
+    private GameObject _ball;
+    private Ball _ballScript;
     
     private bool _canSpawnBall;
     private void Start()
@@ -19,9 +19,17 @@ public class BallSpawner : MonoBehaviour
     
     public void SpawnBall()
     {
-        GameObject ball = poolController.GetObjectFromPool(ObjectType.Ball);
-        ball.SetActive(true);
-        ball.GetComponent<Ball>().Initiate(spawnPoint);
+        _ball = poolController.GetObjectFromPool(ObjectType.Ball);
+        _ball.SetActive(true);
+        _ballScript =_ball.GetComponent<Ball>();
+        
+        Debug.Log(_ball.transform.position);
+        WaitToShoot();
+    }
+
+    private void WaitToShoot()
+    {
+        _ballScript.Initiate(spawnPoint);
     }
     
 }
