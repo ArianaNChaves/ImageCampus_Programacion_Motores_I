@@ -1841,7 +1841,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 5485861874922449217, guid: 1637767bc6a9735489311bd216928730, type: 3}
   obstaclePrefab: {fileID: 1815918552156498534, guid: 078117f8463031b4ab9d69aeab81bf15, type: 3}
   buffPrefab: {fileID: 4691068243194107050, guid: 6ec02ec6d33378645babc15eb5e46751, type: 3}
-  initialCountOfBalls: 1
+  initialCountOfBalls: 2
   initialCountOfObstacles: 1
   initialCountOfBuffs: 1
 --- !u!1 &375189807

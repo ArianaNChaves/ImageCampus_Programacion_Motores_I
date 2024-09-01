@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ballSpawner.SpawnBall();
-        ballSpawner.ShootBall();
     }
 
     private void OnEnable()
