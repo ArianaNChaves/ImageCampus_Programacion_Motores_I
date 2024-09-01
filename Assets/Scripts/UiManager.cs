@@ -84,6 +84,7 @@ public class UiManager : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         mainMenuPanel.SetActive(false);
+        playersHUDPanel.SetActive(true);
     }
     private void OnExitButtonClicked()
     {
