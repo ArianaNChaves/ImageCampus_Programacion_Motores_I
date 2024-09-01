@@ -11,25 +11,20 @@ public class BallSpawner : MonoBehaviour
     private GameObject _ball;
     private Ball _ballScript;
     
-    private bool _canSpawnBall;
-    private void Start()
-    {
-        SpawnBall();
-    }
-    
+
     public void SpawnBall()
     {
         _ball = poolController.GetObjectFromPool(ObjectType.Ball);
         _ball.SetActive(true);
-        _ballScript =_ball.GetComponent<Ball>();
-        
-        Debug.Log(_ball.transform.position);
-        WaitToShoot();
+        _ballScript = _ball.GetComponent<Ball>();
+        ShootBall();
     }
 
-    private void WaitToShoot()
+    public void ShootBall()
     {
         _ballScript.Initiate(spawnPoint);
     }
+    
+    
     
 }

@@ -8,7 +8,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerHUD playerHUD;
     [SerializeField] private BallSpawner ballSpawner;
     [SerializeField] private Line[] lines;
-    
+
+
+    private void Start()
+    {
+        ballSpawner.SpawnBall();
+        ballSpawner.ShootBall();
+    }
+
     private void OnEnable()
     {
         foreach (var line in lines)
@@ -29,5 +36,5 @@ public class GameManager : MonoBehaviour
         playerHUD.UpdateScoreText(player);
         ballSpawner.SpawnBall();
     }
-
+    
 }
