@@ -32,6 +32,7 @@ public class Ball : MonoBehaviour
             speed += incrementalSpeed;
             _rigidbody2D.velocity = _rigidbody2D.velocity.normalized * speed;
         }
+        
     }
     public void Initiate(Transform direction)
     {

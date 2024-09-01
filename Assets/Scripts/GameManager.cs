@@ -5,33 +5,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private PlayerHUD playerHUD;
+    [SerializeField] private Line[] lines;
     
-
-    private Line _line;
-    private int _score;
-
-
     private void OnEnable()
     {
-        _line.OnLineCollision += UpdateScore;
+        foreach (var line in lines)
+        {
+            line.OnLineCollision += UpdateScore;
+        }
     }
     private void OnDisable()
     {
-        _line.OnLineCollision -= UpdateScore;
-    }
-
-    private void Start()
-    {
-        _score = 0;
-    }
-
-    private void UpdateScore()
-    {
-        _score++;
+        foreach (var line in lines)
+        {
+            line.OnLineCollision -= UpdateScore;
+        }
     }
     
-    public int GetScore()
+    private void UpdateScore(string player)
     {
-        return _score;
+        playerHUD.UpdateScoreText(player);
     }
+
 }
