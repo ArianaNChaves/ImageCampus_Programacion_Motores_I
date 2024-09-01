@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private Player playerSelection;
 
     private const int FIXED_SPEED = 50;
-    private const float WHERE_STOP = 4.3f;
+    private const float WHERE_STOP = 4.0f;
     
     private Vector2 _distance;
     private KeyCode _keyUp;
