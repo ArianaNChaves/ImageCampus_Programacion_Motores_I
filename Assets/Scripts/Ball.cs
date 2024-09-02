@@ -22,12 +22,8 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 collisionNormalVector = collision.contacts[0].normal;
-
-        _direction = Vector2.Reflect(_direction, collisionNormalVector);
-        _direction = Quaternion.Euler(0, 0, RandomDeviation()) * _direction;
-    
-        _rigidbody2D.velocity = _direction.normalized * speed;
+        _direction = Quaternion.Euler(0, 0, RandomDeviation()) * _rigidbody2D.velocity.normalized;
+        _rigidbody2D.velocity = _direction * speed;
         
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Obstacle"))
         {

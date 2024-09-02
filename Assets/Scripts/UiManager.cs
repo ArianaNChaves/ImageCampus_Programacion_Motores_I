@@ -69,11 +69,13 @@ public class UiManager : MonoBehaviour
         {
             if (!mainMenuPanel.activeSelf)
             {
+                StopTime();
                 playersHUDPanel.SetActive(false);
                 mainMenuPanel.SetActive(true);
             }
             else
             {
+                PlayTime();
                 mainMenuPanel.SetActive(false);
                 playersHUDPanel.SetActive(true);
             }
@@ -134,6 +136,16 @@ public class UiManager : MonoBehaviour
         shieldImageRectTransform.sizeDelta = new Vector2(value * SHIELD_SIZE, shieldImageRectTransform.sizeDelta.y);
         playerOneShield.SetShieldSize(value);
         playerTwoShield.SetShieldSize(value);
+    }
+
+    private void StopTime()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void PlayTime()
+    {
+        Time.timeScale = 1;
     }
 
 }
