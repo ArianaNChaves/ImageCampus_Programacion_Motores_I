@@ -6,7 +6,6 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    
 
     public void StartDestroy(float delay)
     {
@@ -15,6 +14,5 @@ public class Obstacle : MonoBehaviour
     private void SelfDestroy()
     {
         ObstacleSpawn.OnObstacleDespawned?.Invoke();
-        Destroy(gameObject, 0.1f);
     }
 }

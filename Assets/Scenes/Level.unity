@@ -8969,6 +8969,7 @@ MonoBehaviour:
   - {fileID: 1406430978}
   - {fileID: 1425211378}
   obstaclePrefab: {fileID: 1815918552156498534, guid: 078117f8463031b4ab9d69aeab81bf15, type: 3}
+  poolController: {fileID: 350593654}
   obstacleSpawnInterval: 2.2
 --- !u!4 &353734498464968211
 Transform:
@@ -9371,6 +9372,8 @@ SceneRoots:
   - {fileID: 7047855806084087541}
   - {fileID: 7590615915551193143}
   - {fileID: 1604029162}
+  - {fileID: 875068526}
+  - {fileID: 350593653}
   - {fileID: 2120058340}
   - {fileID: 1193248850}
   - {fileID: 1619426667}
@@ -9380,5 +9383,3 @@ SceneRoots:
   - {fileID: 705417060}
   - {fileID: 353734498464968211}
   - {fileID: 616244397}
-  - {fileID: 875068526}
-  - {fileID: 350593653}
