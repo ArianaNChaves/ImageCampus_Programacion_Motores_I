@@ -34,7 +34,6 @@ public class ObstacleSpawn : MonoBehaviour
         _obstacle = poolController.GetObjectFromPool(ObjectType.Obstacle);
         _obstacle.transform.position = spawnPointsObstaclesList[randomPosition].position;
         _obstacle.SetActive(true);
-        // GameObject obstacle = Instantiate(obstaclePrefab, spawnPointsObstaclesList[randomPosition].position, Quaternion.identity);
         _obstacle.GetComponent<Obstacle>().StartDestroy(RandomIntBetween(3, 8));
     }
     private void StartRespawnObstacle()
