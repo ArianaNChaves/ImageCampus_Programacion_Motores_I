@@ -9048,7 +9048,7 @@ GameObject:
   - component: {fileID: 2120058340}
   - component: {fileID: 2120058341}
   m_Layer: 0
-  m_Name: SpawnSystem
+  m_Name: Spawn System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9158,7 +9158,7 @@ GameObject:
   - component: {fileID: 9053210580252358967}
   - component: {fileID: 8956959332045541316}
   m_Layer: 0
-  m_Name: Direction
+  m_Name: Ball Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
