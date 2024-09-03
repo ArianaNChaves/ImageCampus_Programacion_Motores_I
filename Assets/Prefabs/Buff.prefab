@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3979880825066652315}
   - component: {fileID: 4276737220836724754}
   - component: {fileID: 3601019815690453135}
+  - component: {fileID: 7692590580762838675}
   m_Layer: 0
   m_Name: Buff
   m_TagString: Untagged
@@ -120,3 +121,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.26
+--- !u!114 &7692590580762838675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691068243194107050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea0003e9e172f24fb7f13b6a25fa74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

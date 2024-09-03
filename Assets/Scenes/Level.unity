@@ -9047,8 +9047,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2120058340}
   - component: {fileID: 2120058341}
+  - component: {fileID: 2120058342}
   m_Layer: 0
-  m_Name: Spawn System
+  m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9094,6 +9095,25 @@ MonoBehaviour:
   - {fileID: 1425211378}
   poolController: {fileID: 350593654}
   obstacleSpawnInterval: 2.2
+--- !u!114 &2120058342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2120058339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e491ae9ccc5e48943bd7eef24699625d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointsBuffList:
+  - {fileID: 1042099900}
+  - {fileID: 736790841}
+  - {fileID: 707879457}
+  - {fileID: 1966076556}
+  poolController: {fileID: 350593654}
+  buffSpawnInterval: 6
 --- !u!4 &353734498464968211
 Transform:
   m_ObjectHideFlags: 0

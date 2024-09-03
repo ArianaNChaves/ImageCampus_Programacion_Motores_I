@@ -7,11 +7,11 @@ public class Obstacle : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
 
-    public void StartDestroy(float delay)
+    public void StartDespawn(float delay)
     {
-        Invoke(nameof(SelfDestroy), delay);
+        Invoke(nameof(Despawn), delay);
     }
-    private void SelfDestroy()
+    private void Despawn()
     {
         ObstacleSpawn.OnObstacleDespawned?.Invoke();
     }
