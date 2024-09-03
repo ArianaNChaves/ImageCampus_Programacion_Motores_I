@@ -31,7 +31,6 @@ public class BuffSpawn : MonoBehaviour
         _buff = poolController.GetObjectFromPool(ObjectType.Buff);
         _buff.transform.position = spawnPointsBuffList[randomPosition].position;
         _buff.SetActive(true);
-        _buff.GetComponent<Buff>().StartDespawn(RandomIntBetween(6, 14));
     }
     private void StartRespawnBuff()
     {

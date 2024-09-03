@@ -7,15 +7,6 @@ public class Buff : MonoBehaviour
 {
     public static event Action OnBuffDespawn;
     
-    public void StartDespawn(float delay)
-    {
-        Invoke(nameof(Despawn), delay);
-    }
-
-    private void Despawn()
-    {
-        OnBuffDespawn?.Invoke();
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,5 +15,10 @@ public class Buff : MonoBehaviour
             Despawn();
             Debug.Log("BUFFOOOO");
         }
+    }
+    
+    private void Despawn()
+    {
+        OnBuffDespawn?.Invoke();
     }
 }
