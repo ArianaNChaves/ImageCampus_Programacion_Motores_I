@@ -21,7 +21,8 @@ public class Buff : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            //pensar en powers up
+            Despawn();
+            Debug.Log("BUFFOOOO");
         }
     }
 }
