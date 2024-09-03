@@ -30,7 +30,6 @@ public class Ball : MonoBehaviour
             speed += incrementalSpeed;
             _rigidbody2D.velocity = _rigidbody2D.velocity.normalized * speed;
         }
-        
     }
     public void Initiate(Transform direction)
     {
@@ -39,7 +38,6 @@ public class Ball : MonoBehaviour
         _direction = direction.up;
         _rigidbody2D.velocity = new Vector2(_direction.x, _direction.y) * speed;
     }
-    
     private float RandomDeviation()
     {
         return Random.Range(-DEVIATION, DEVIATION);

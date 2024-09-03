@@ -12,6 +12,9 @@ public class Movement : MonoBehaviour
 
     private const int FIXED_SPEED = 50;
     private const float WHERE_STOP = 4.0f;
+    private const float MAX_SPEED = 20.0f;
+    private const float MIN_SPEED = 5.0f;
+    private const int MIN_VARIATION = 2;
     
     private Vector2 _distance;
     private KeyCode _keyUp;
@@ -82,6 +85,20 @@ public class Movement : MonoBehaviour
         else if (!_canMoveDown && _rigidbody2D.velocity.y < 0)
         {
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
+        }
+    }
+    public void ChangeSpeedModifier(float variation)
+    {
+        if (variation == 0)
+        {
+            variation = MIN_VARIATION;
+        }
+        
+        float newSpeed = speed + variation;
+        
+        if (newSpeed <= MAX_SPEED && newSpeed >= MIN_SPEED)
+        {
+            SetPlayerSpeed(newSpeed);
         }
     }
     public void SetPlayerSpeed(float newSpeed)

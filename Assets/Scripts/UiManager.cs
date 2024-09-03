@@ -45,6 +45,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private ShieldSize playerTwoShield;
     
     private const int SHIELD_SIZE = 200;
+    private const int SHIELD_DIVISOR = 2;
     private const int SPEED_MULTIPLIER = 10;
     private void Awake()
     {
@@ -135,8 +136,8 @@ public class UiManager : MonoBehaviour
     private void SetShieldWidth(float value)
     {
         shieldImageRectTransform.sizeDelta = new Vector2(value * SHIELD_SIZE, shieldImageRectTransform.sizeDelta.y);
-        playerOneShield.SetShieldSize(value);
-        playerTwoShield.SetShieldSize(value);
+        playerOneShield.SetShieldSize(value/SHIELD_DIVISOR);
+        playerTwoShield.SetShieldSize(value/SHIELD_DIVISOR);
     }
 
     private void StopTime()
