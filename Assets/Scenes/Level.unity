@@ -4955,7 +4955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193248850}
   m_Layer: 0
-  m_Name: Spawns
+  m_Name: Obstacle Spawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9519,6 +9519,10 @@ SceneRoots:
   - {fileID: 350593653}
   - {fileID: 2120058340}
   - {fileID: 1193248850}
+  - {fileID: 1042099900}
+  - {fileID: 736790841}
+  - {fileID: 707879457}
+  - {fileID: 1966076556}
   - {fileID: 1619426667}
   - {fileID: 863844316}
   - {fileID: 1941461590}
@@ -9526,7 +9530,3 @@ SceneRoots:
   - {fileID: 705417060}
   - {fileID: 353734498464968211}
   - {fileID: 616244397}
-  - {fileID: 1042099900}
-  - {fileID: 736790841}
-  - {fileID: 707879457}
-  - {fileID: 1966076556}
