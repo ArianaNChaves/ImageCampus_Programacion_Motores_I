@@ -85,6 +85,7 @@ public class UiManager : MonoBehaviour
 //-------------------------------------------------- Buttons
     private void OnPlayButtonClicked()
     {
+        PlayTime();
         mainMenuPanel.SetActive(false);
         playersHUDPanel.SetActive(true);
     }
