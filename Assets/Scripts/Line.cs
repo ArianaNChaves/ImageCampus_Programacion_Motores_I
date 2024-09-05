@@ -28,11 +28,8 @@ public class Line : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ball"))
-        {
-            OnLineCollision?.Invoke(scorePointTo);
-            poolController.ReturnToPool(ObjectType.Ball, other.gameObject);
-        }
+        OnLineCollision?.Invoke(scorePointTo);
+        poolController.ReturnToPool(ObjectType.Ball, other.gameObject);
     }
     public void SetLineSize(float value)
     {
