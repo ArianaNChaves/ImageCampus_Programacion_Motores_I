@@ -12,7 +12,7 @@ public class ObstacleSpawn : MonoBehaviour
 
     [SerializeField] private Transform[] spawnPointsObstaclesList;
     [SerializeField] private PoolController poolController;
-    [SerializeField, Range(1.0f, 20.0f)] private float obstacleSpawnInterval;
+    [SerializeField, Range(1.0f, 8.0f)] private float obstacleSpawnInterval;
     
     private GameObject _obstacle;
 
