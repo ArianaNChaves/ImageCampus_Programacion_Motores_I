@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Ball : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
-    [SerializeField] private float incrementalSpeed = 0.75f;
+    [SerializeField] private float incrementalSpeed = 1.0f;
     
     private Rigidbody2D _rigidbody2D;
     private Vector3 _direction;

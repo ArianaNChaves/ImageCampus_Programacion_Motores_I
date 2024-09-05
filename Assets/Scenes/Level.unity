@@ -8896,7 +8896,7 @@ MonoBehaviour:
   - {fileID: 707879457}
   - {fileID: 1966076556}
   poolController: {fileID: 350593654}
-  buffSpawnInterval: 1.4
+  buffSpawnInterval: 4.5
 --- !u!4 &353734498464968211
 Transform:
   m_ObjectHideFlags: 0
@@ -9329,10 +9329,10 @@ SceneRoots:
   - {fileID: 1619426667}
   - {fileID: 2120058340}
   - {fileID: 1193248850}
+  - {fileID: 792283405}
   - {fileID: 1307283720}
   - {fileID: 66298691}
   - {fileID: 863844316}
   - {fileID: 1941461590}
   - {fileID: 353734498464968211}
   - {fileID: 616244397}
-  - {fileID: 792283405}
