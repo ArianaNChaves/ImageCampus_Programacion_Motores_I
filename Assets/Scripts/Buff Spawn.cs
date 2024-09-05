@@ -8,7 +8,7 @@ public class BuffSpawn : MonoBehaviour
 {
     [SerializeField] private Transform[] spawnPointsBuffList;
     [SerializeField] private PoolController poolController;
-    [SerializeField, Range(1.0f, 20.0f)] private float buffSpawnInterval;
+    [SerializeField, Range(5.0f, 20.0f)] private float buffSpawnInterval;
     
     private GameObject _buff;
     private void OnEnable()
