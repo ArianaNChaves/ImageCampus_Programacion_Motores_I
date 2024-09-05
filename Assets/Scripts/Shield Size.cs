@@ -18,19 +18,16 @@ public class ShieldSize : MonoBehaviour
         Big,
         Small
     }
-
     private void Start()
     {
         _lastShieldSizeVariation = ShieldSizeVariation.Small;
     }
-
     public void SetShieldSize(float value)
     {
         Vector3 newScale = gameObject.transform.localScale;
         newScale.x = value;
         gameObject.transform.localScale = newScale;
     }
-
     public void ChangeShieldSizeModifier(float change)
     {
         switch (change)
@@ -73,7 +70,6 @@ public class ShieldSize : MonoBehaviour
                 Debug.LogError("Shield Size - Change Shield Size Modifier - Out of range");
                 break;
         }
-        Debug.Log($"Shield Size: {_lastShieldSizeVariation}");
+        // Debug.Log($"Shield Size: {_lastShieldSizeVariation}");
     }
-    
 }

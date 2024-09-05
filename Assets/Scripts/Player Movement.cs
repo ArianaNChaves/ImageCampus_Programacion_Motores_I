@@ -57,17 +57,14 @@ public class Movement : MonoBehaviour
                 break;
         }  
     }
-
     private void Start()
     {
         _lastVariation = SpeedVariation.Normal;
     }
-
     void Update()
     {
         RestrictMovement();
     }
-
     private void FixedUpdate()
     {
         Move();
@@ -87,7 +84,6 @@ public class Movement : MonoBehaviour
 
         _rigidbody2D.velocity = _distance * (speed * Time.fixedDeltaTime * FIXED_SPEED);
     }
-
     private void RestrictMovement()
     {
         _canMoveUp = transform.position.y <= WHERE_STOP;
@@ -143,8 +139,7 @@ public class Movement : MonoBehaviour
                 Debug.LogError("Player Movement - Change Speed Modifier - Out of range");
                 break;
         }
-        
-        Debug.Log($"Players Speed: {_lastVariation}");
+        // Debug.Log($"Players Speed: {_lastVariation}");
     }
     public void SetPlayerSpeed(float newSpeed)
     {

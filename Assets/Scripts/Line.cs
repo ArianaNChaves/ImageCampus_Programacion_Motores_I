@@ -22,12 +22,10 @@ public class Line : MonoBehaviour
         Normal,
         Small,
     }
-
     private void Start()
     {
         _lastLineSizeVariation = LineSizeVariation.Normal;
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ball"))
@@ -36,14 +34,12 @@ public class Line : MonoBehaviour
             poolController.ReturnToPool(ObjectType.Ball, other.gameObject);
         }
     }
-    
     public void SetLineSize(float value)
     {
         Vector3 newScale = gameObject.transform.localScale;
         newScale.y = value;
         gameObject.transform.localScale = newScale;
     }
-    
     public void ChangeShieldSizeModifier(float change)
     {
         switch (change)
@@ -75,6 +71,6 @@ public class Line : MonoBehaviour
                 Debug.LogError("Line Size - Change Line Size Modifier - Out of range");
                 break;
         }
-        Debug.Log($"Line Size: {_lastLineSizeVariation}");
+        // Debug.Log($"Line Size: {_lastLineSizeVariation}");
     }
 }
