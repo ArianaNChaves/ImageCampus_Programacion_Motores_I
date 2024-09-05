@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class PowerUps : MonoBehaviour
+public class Modifier : MonoBehaviour
 {
     [SerializeField] private Movement[] playersMovement;
     [SerializeField] private ShieldSize[] playersShield;
