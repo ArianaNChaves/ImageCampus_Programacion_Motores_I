@@ -9310,7 +9310,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3198356817031063472, guid: d18fbd6c296db684281eae9adf648b18, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3523330374583272462, guid: d18fbd6c296db684281eae9adf648b18, type: 3}
       propertyPath: m_LocalScale.x
@@ -9490,7 +9490,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6499151599277478517, guid: a0eb74d9ab74af446969cb4668b7fde7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6983650373175617371, guid: a0eb74d9ab74af446969cb4668b7fde7, type: 3}
       propertyPath: m_Constraints

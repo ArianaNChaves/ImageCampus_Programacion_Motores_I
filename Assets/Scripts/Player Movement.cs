@@ -12,13 +12,15 @@ public class Movement : MonoBehaviour
 
     private const int FIXED_SPEED = 50;
     private const float WHERE_STOP = 4.0f;
-    private const float MAX_SPEED = 20.0f;
-    private const float MIN_SPEED = 5.0f;
-    private const int MIN_VARIATION = 2;
+    
+    private const float HIGH = 15.0f;
+    private const float NORMAL = 10.0f;
+    private const float LOW = 5.0f;
     
     private Vector2 _distance;
     private KeyCode _keyUp;
     private KeyCode _keyDown;
+    private SpeedVariation _lastVariation;
     private Rigidbody2D _rigidbody2D;
 
     private bool _canMoveUp;
@@ -28,6 +30,13 @@ public class Movement : MonoBehaviour
     {
         Player1,
         Player2
+    }
+    private enum SpeedVariation
+    {
+        Default,
+        Normal,
+        High,
+        Low
     }
     private void Awake()
     {
@@ -48,6 +57,12 @@ public class Movement : MonoBehaviour
                 break;
         }  
     }
+
+    private void Start()
+    {
+        _lastVariation = SpeedVariation.Normal;
+    }
+
     void Update()
     {
         RestrictMovement();
@@ -87,19 +102,49 @@ public class Movement : MonoBehaviour
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0);
         }
     }
-    public void ChangeSpeedModifier(float variation)
+    public void ChangeSpeedModifier(int change)
     {
-        if (variation == 0)
+        switch (change)
         {
-            variation = MIN_VARIATION;
+            case 0:
+                if (_lastVariation != SpeedVariation.Normal)
+                {
+                    SetPlayerSpeed(NORMAL);
+                    _lastVariation = SpeedVariation.Normal;
+                }
+                else
+                {
+                    ChangeSpeedModifier(1);
+                }
+                break;
+            case 1:
+                if (_lastVariation != SpeedVariation.High)
+                {
+                    SetPlayerSpeed(HIGH);
+                    _lastVariation = SpeedVariation.High;
+                }
+                else
+                {
+                    ChangeSpeedModifier(2);
+                }
+                break;
+            case 2:
+                if (_lastVariation != SpeedVariation.Low)
+                {
+                    SetPlayerSpeed(LOW);
+                    _lastVariation = SpeedVariation.Low;
+                }
+                else
+                {
+                    ChangeSpeedModifier(0);
+                }
+                break;
+            default:
+                Debug.LogError("Player Movement - Change Speed Modifier - Out of range");
+                break;
         }
         
-        float newSpeed = speed + variation;
-        
-        if (newSpeed <= MAX_SPEED && newSpeed >= MIN_SPEED)
-        {
-            SetPlayerSpeed(newSpeed);
-        }
+        Debug.Log($"Speed: {_lastVariation}");
     }
     public void SetPlayerSpeed(float newSpeed)
     {

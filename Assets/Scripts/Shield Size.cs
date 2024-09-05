@@ -1,12 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldSize : MonoBehaviour
 {
-    private const int MIN_VARIATION = 2;
-    private const float MAX_SIZE = 4;
-    private const float MIN_SIZE = 0.5f;
+    private const float SMALL = 0.5f;
+    private const float BIG = 2.0f;
+    private const float MEDIUM = 1.0f;
+
+    private ShieldSizeVariation _lastShieldSizeVariation;
+    
+    private enum ShieldSizeVariation
+    {
+        Default,
+        Medium,
+        Big,
+        Small
+    }
+
+    private void Start()
+    {
+        _lastShieldSizeVariation = ShieldSizeVariation.Small;
+    }
+
     public void SetShieldSize(float value)
     {
         Vector3 newScale = gameObject.transform.localScale;
@@ -14,23 +31,49 @@ public class ShieldSize : MonoBehaviour
         gameObject.transform.localScale = newScale;
     }
 
-    public void ChangeShieldSizeModifier(float variation)
+    public void ChangeShieldSizeModifier(float change)
     {
-        if (variation == 0)
+        switch (change)
         {
-            variation = MIN_VARIATION;
+            case 0:
+                if (_lastShieldSizeVariation != ShieldSizeVariation.Medium)
+                {
+                    SetShieldSize(MEDIUM);
+                    _lastShieldSizeVariation = ShieldSizeVariation.Medium;
+                }
+                else
+                {
+                    ChangeShieldSizeModifier(1);
+                }
+                break;
+            case 1:
+                if (_lastShieldSizeVariation != ShieldSizeVariation.Big)
+                {
+                    SetShieldSize(BIG);
+                    _lastShieldSizeVariation = ShieldSizeVariation.Big;
+                }
+                else
+                {
+                    ChangeShieldSizeModifier(2);
+                }
+
+                break;
+            case 2:
+                if (_lastShieldSizeVariation != ShieldSizeVariation.Small)
+                {
+                    SetShieldSize(SMALL);
+                    _lastShieldSizeVariation = ShieldSizeVariation.Small;
+                }
+                else
+                {
+                    ChangeShieldSizeModifier(0);
+                }
+                break;
+            default:
+                Debug.LogError("Shield Size - Change Shield Size Modifier - Out of range");
+                break;
         }
-        
-        float newSize = transform.localScale.x + variation;
-        
-        if (newSize <= MAX_SIZE && newSize >= MIN_SIZE)
-        {
-            SetShieldSize(newSize);
-        }
+        Debug.Log($"Size: {_lastShieldSizeVariation}");
     }
     
-    public float GetShieldSize()
-    {
-        return gameObject.transform.localScale.x;
-    }
 }

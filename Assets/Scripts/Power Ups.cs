@@ -9,8 +9,6 @@ public class PowerUps : MonoBehaviour
     [SerializeField] private Movement[] playersMovement;
     [SerializeField] private ShieldSize[] playersShield;
     
-    private const int SPEED_VARIATION = 5;
-    private const float SHIELD_SIZE_VARIATION = 2.0f;
     private void OnEnable()
     {
         Buff.OnBuffDespawn += RandomPower;
@@ -37,18 +35,18 @@ public class PowerUps : MonoBehaviour
     }
     private void ChangePlayersSpeed()
     {
-        float newSpeed = Random.Range(-SPEED_VARIATION, SPEED_VARIATION);
+        int changeSpeed = Random.Range(0, 3);
         foreach (var playerSpeed in playersMovement)
         {
-            playerSpeed.ChangeSpeedModifier(newSpeed);
+            playerSpeed.ChangeSpeedModifier(changeSpeed);
         }
     }
     private void ChangeShieldSize()
     {
-        float newShieldSize = Random.Range(-SHIELD_SIZE_VARIATION, SHIELD_SIZE_VARIATION);
+        int changeShieldSize = Random.Range(0, 3);
         foreach (var playerShield in playersShield)
         {
-            playerShield.ChangeShieldSizeModifier(newShieldSize);
+            playerShield.ChangeShieldSizeModifier(changeShieldSize);
         }
     }
 
