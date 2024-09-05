@@ -73,7 +73,7 @@ public class ShieldSize : MonoBehaviour
                 Debug.LogError("Shield Size - Change Shield Size Modifier - Out of range");
                 break;
         }
-        Debug.Log($"Size: {_lastShieldSizeVariation}");
+        Debug.Log($"Shield Size: {_lastShieldSizeVariation}");
     }
     
 }

@@ -144,7 +144,7 @@ public class Movement : MonoBehaviour
                 break;
         }
         
-        Debug.Log($"Speed: {_lastVariation}");
+        Debug.Log($"Players Speed: {_lastVariation}");
     }
     public void SetPlayerSpeed(float newSpeed)
     {

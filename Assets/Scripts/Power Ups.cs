@@ -8,6 +8,7 @@ public class PowerUps : MonoBehaviour
 {
     [SerializeField] private Movement[] playersMovement;
     [SerializeField] private ShieldSize[] playersShield;
+    [SerializeField] private Line[] lines;
     
     private void OnEnable()
     {
@@ -19,7 +20,7 @@ public class PowerUps : MonoBehaviour
     }
     private void RandomPower()
     {
-        int random = Random.Range(0, 2);
+        int random = Random.Range(0, 3);
         switch (random)
         {
             case 0:
@@ -27,6 +28,9 @@ public class PowerUps : MonoBehaviour
                 break;
             case 1:
                 ChangeShieldSize();
+                break;
+            case 2:
+                ChangeLineSize();
                 break;
             default:
                 Debug.Log("Random fuera de rango");
@@ -47,6 +51,15 @@ public class PowerUps : MonoBehaviour
         foreach (var playerShield in playersShield)
         {
             playerShield.ChangeShieldSizeModifier(changeShieldSize);
+        }
+    }
+
+    private void ChangeLineSize()
+    {
+        int changeLineSize = Random.Range(0, 2);
+        foreach (var line in lines)
+        {
+            line.ChangeShieldSizeModifier(changeLineSize);
         }
     }
 
