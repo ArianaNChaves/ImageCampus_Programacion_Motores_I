@@ -17,12 +17,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ball
+  - Wall
+  - Player
+  - Obstacle
+  - Buff
+  - Line
   - 
   - 
   - 
