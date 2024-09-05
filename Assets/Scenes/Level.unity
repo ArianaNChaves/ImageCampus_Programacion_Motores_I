@@ -189,7 +189,7 @@ GameObject:
   m_TagString: Line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!61 &25563243
 BoxCollider2D:
@@ -3935,7 +3935,7 @@ GameObject:
   m_TagString: Line
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!212 &1007947517
 SpriteRenderer:
