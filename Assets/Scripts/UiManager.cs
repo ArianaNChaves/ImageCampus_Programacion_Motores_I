@@ -29,7 +29,6 @@ public class UiManager : MonoBehaviour
     [Header("Silders")] 
     [SerializeField] private Slider playerOneSlider;
     [SerializeField] private Slider playerTwoSlider;
-    [SerializeField] private Slider shieldSlider;
     
     [Header("Texts")] 
     [SerializeField] private TextMeshProUGUI playerOneSpeedText;
@@ -44,8 +43,6 @@ public class UiManager : MonoBehaviour
     [SerializeField] private ShieldSize playerOneShield;
     [SerializeField] private ShieldSize playerTwoShield;
     
-    private const int SHIELD_SIZE = 200;
-    private const int SHIELD_DIVISOR = 2;
     private const int SPEED_MULTIPLIER = 10;
     private void Awake()
     {
@@ -59,14 +56,12 @@ public class UiManager : MonoBehaviour
         colorOnePlayerTwoButton.onClick.AddListener(OnColorOnePlayerTwoButtonClicked);
         colorTwoPlayerTwoButton.onClick.AddListener(OnColorTwoPlayerTwoButtonClicked);
         playerTwoSlider.onValueChanged.AddListener(SetPlayerTwoSpeed);
-        //Shield
-        shieldSlider.onValueChanged.AddListener(SetShieldWidth);
 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (!mainMenuPanel.activeSelf)
             {
@@ -132,12 +127,6 @@ public class UiManager : MonoBehaviour
     private void SetPlayerTwoSpeed(float value)
     {
         playerTwoMovement.SetPlayerSpeed(value * SPEED_MULTIPLIER);
-    }
-    private void SetShieldWidth(float value)
-    {
-        shieldImageRectTransform.sizeDelta = new Vector2(value * SHIELD_SIZE, shieldImageRectTransform.sizeDelta.y);
-        playerOneShield.SetShieldSize(value/SHIELD_DIVISOR);
-        playerTwoShield.SetShieldSize(value/SHIELD_DIVISOR);
     }
 
     private void StopTime()
