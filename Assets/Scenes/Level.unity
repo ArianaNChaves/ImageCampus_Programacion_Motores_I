@@ -3576,9 +3576,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'W/S - Left player
+  m_text: 'W/S - Player 1
 
-    Up/Down Arrow - Right Player
+    Up/Down Arrow - Player 2
 
     P - Pause'
   m_isRightToLeft: 0
