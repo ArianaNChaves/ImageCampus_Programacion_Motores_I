@@ -59,6 +59,10 @@ public class UiManager : MonoBehaviour
 
     }
 
+    private void Start()
+    {
+        StopTime();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
